@@ -25,7 +25,7 @@ function FoodDonation() {
     console.log(formData);
     // Send the form data to the server using fetch or Axios
     try {
-      const response = await axios.post("http://localhost:3000/fooddonation", {
+      const response = await axios.post("http://localhost:5000/api/fooddonation", {
         formData,
       });
 
@@ -71,8 +71,9 @@ function FoodDonation() {
               name="foodTag"
               value={foodTag}
               onChange={(event) => setFoodTag(event.target.value)}
+              defaultValue=""
             >
-              <option value="" disabled selected>
+              <option value="" disabled>
                 Choose type
               </option>
               <option value="veg" style={{ color: "black" }}>

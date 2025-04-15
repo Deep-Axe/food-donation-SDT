@@ -28,21 +28,22 @@ const Signup = () => {
       number: formData.number,
     };
     try {
-      axios.post("http://localhost:3000/signup", data).then((response) => {
-        console.log(response);
-      });
-
-      navigate("/"); // redirect to home page
+      const response = await axios.post("http://localhost:5000/api/signup", data);
+      console.log(response);
+      
+      if (response.data) {
+        navigate("/"); // redirect to home page
+      }
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <div class="signup_container">
-      <div class="signup_main-img"></div>
+    <div className="signup_container">
+      <div className="signup_main-img"></div>
 
-      <div class="signup_wrapper">
+      <div className="signup_wrapper">
         <form>
           <h1>Sign-Up</h1>
           <p>Create your free account on Food-donation</p>
@@ -64,7 +65,7 @@ const Signup = () => {
             id="email"
           />
           <input
-            type="text"
+            type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
@@ -84,10 +85,10 @@ const Signup = () => {
             Sign Up
           </button>
 
-          <div class="login">
+          <div className="login">
             <p>Already have an account?</p>
             <Link to={"/login"}>
-              <button class="login-btn">Login</button>
+              <button className="login-btn">Login</button>
             </Link>
           </div>
         </form>

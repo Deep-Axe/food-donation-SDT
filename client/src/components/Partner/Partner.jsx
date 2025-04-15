@@ -35,6 +35,7 @@ const Partner = () => {
         {data.map((partner) => {
           return (
             <Card
+              key={partner.id}
               name={partner.name}
               des={partner.description}
               img={partner.img}

@@ -13,7 +13,7 @@ const Food = () => {
 
   const fetchFoodItems = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/allfoods");
+      const response = await axios.get("http://localhost:5000/api/allfoods");
       setFood(response.data);
     } catch (error) {
       console.log(error);
